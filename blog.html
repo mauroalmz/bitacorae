@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Todos los artículos de Bitacorae: estrategia, negocios, ejecución, comunidad y más. Aprendé desde la experiencia real.">
   <title>Blog · Bitacorae</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -24,7 +25,6 @@
     <div class="container posts-section">
       <h2>📚 Todos los artículos</h2>
       <div class="cards-grid">
-        <!-- 1 -->
         <article class="post-card">
           <div class="card-badge">🧠 · Estrategia</div>
           <h3 class="post-title">Pensamiento de primeros principios</h3>
@@ -32,7 +32,6 @@
           <p class="post-excerpt">Razonar desde cero, como Elon Musk, para romper supuestos y crear soluciones innovadoras.</p>
           <a href="posts/primeros-principios.html" class="read-more">Leer más →</a>
         </article>
-        <!-- 2 -->
         <article class="post-card">
           <div class="card-badge">📊 · Negocios</div>
           <h3 class="post-title">Las 5 partes de todo negocio</h3>
@@ -40,7 +39,6 @@
           <p class="post-excerpt">Crear valor, marketing, ventas, entrega y finanzas. Un checklist para validar tu proyecto.</p>
           <a href="posts/cinco-partes-negocio.html" class="read-more">Leer más →</a>
         </article>
-        <!-- 3 -->
         <article class="post-card">
           <div class="card-badge">⚙️ · Estrategia</div>
           <h3 class="post-title">Los 7 poderes estratégicos</h3>
@@ -48,7 +46,6 @@
           <p class="post-excerpt">Economías de escala, efecto red, marca… ¿cuál podés aplicar en tu emprendimiento?</p>
           <a href="posts/siete-poderes-estrategicos.html" class="read-more">Leer más →</a>
         </article>
-        <!-- 4 -->
         <article class="post-card">
           <div class="card-badge">⚡ · Acción</div>
           <h3 class="post-title">Ejecución sobre perfección</h3>
@@ -56,7 +53,6 @@
           <p class="post-excerpt">La acción genera claridad. Empezá antes de estar listo y aprendé en el camino.</p>
           <a href="posts/ejecucion-perfeccion.html" class="read-more">Leer más →</a>
         </article>
-        <!-- 5 -->
         <article class="post-card">
           <div class="card-badge">💙 · Comunidad</div>
           <h3 class="post-title">Propósito y comunidad</h3>
@@ -72,15 +68,34 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-links">
-          <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub ↝</a>
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank" rel="noopener noreferrer">GitHub ↝</a>
           <a href="#">𝕏 / Twitter</a>
           <a href="./about.html">Sobre el proyecto</a>
           <a href="#" id="contact-link">Contacto</a>
         </div>
-        <div class="footer-copy">© 2025 Bitacorae · Hecho con ⚡ para emprendedores</div>
+        <div class="footer-copy">
+          <span>© 2025 Bitacorae · Hecho con ⚡ para emprendedores</span><br>
+          <span style="font-size: 0.75rem;">Diseño moderno · Código abierto · Desplegado con Cloudflare Pages</span>
+        </div>
       </div>
     </div>
   </footer>
-  <script>/* mismo script de contacto y active link */</script>
+
+  <script>
+    const contactLink = document.getElementById('contact-link');
+    if (contactLink) {
+      contactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("📬 ¡Gracias por tu interés! Pronto habilitaremos un formulario de contacto. Mientras, escribinos a hola@bitacorae.dev (demo)");
+      });
+    }
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPath || (currentPath === '/' && href === './') || (currentPath.endsWith('/blog.html') && href === './blog.html')) {
+        link.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>
