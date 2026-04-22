@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Conoce Bitacorae, un espacio real para emprendedores que documentan aprendizajes, hitos y procesos. Transparencia y mejora continua.">
+  <title>Acerca de · Bitacorae</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="./" class="logo">⌕ bitacorae</a>
+      <div class="nav-links">
+        <a href="./">Inicio</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./projects.html">Proyectos</a>
+        <a href="./about.html" class="active">Acerca</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="max-width: 800px; margin: 2rem auto;">
+      <h1>Acerca de Bitacorae</h1>
+      <div class="post-content">
+        <p>Este no es un blog de gurús ni de fórmulas mágicas. Es un espacio <strong>real</strong> para los que estamos intentando construir algo desde cero, documentando los aciertos, los errores y todo lo que aprendemos en el camino.</p>
+        
+        <p>Bitacorae nace de la necesidad de registrar aprendizajes, hitos y procesos de emprendimientos. Creemos que la <strong>transparencia acelera el crecimiento</strong> y que compartir el viaje ayuda a otros a animarse a dar el primer paso.</p>
+        
+        <h2>📌 ¿Qué vas a encontrar acá?</h2>
+        <ul>
+          <li>Reflexiones sobre estrategia y ejecución.</li>
+          <li>Casos prácticos y herramientas reales.</li>
+          <li>Fracasos valiosos y victorias tempranas.</li>
+          <li>Una comunidad que aprende haciendo.</li>
+        </ul>
+        
+        <h2>🎯 Nuestra misión</h2>
+        <p>Demostrar que emprender no es un destino, sino un proceso de mejora continua. Queremos construir una bitácora viva donde cada artículo sea un ladrillo para quienes se animan a empezar.</p>
+        
+        <div class="cta-box">
+          <p>✨ <strong>Si estás construyendo algo, este es tu lugar.</strong> ✨</p>
+          <p style="margin-top: 1rem;">📬 ¿Querés sumarte o compartir tu experiencia? <a href="#" id="contact-link" style="color: var(--accent);">Escribinos</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank" rel="noopener noreferrer">GitHub ↝</a>
+          <a href="#">𝕏 / Twitter</a>
+          <a href="./about.html">Sobre el proyecto</a>
+          <a href="#" id="contact-link-footer">Contacto</a>
+        </div>
+        <div class="footer-copy">
+          <span>© 2025 Bitacorae — Espacio digital para emprendedores y aprendices.</span><br>
+          <span style="font-size: 0.75rem;">Diseño moderno · Código abierto · Desplegado con <span style="color: var(--accent);">Cloudflare Pages</span></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      alert("📬 ¡Gracias por tu interés! Podés escribirnos a hola@bitacorae.dev (demo) o esperar nuestro formulario pronto.");
+    }
+    const contactLink = document.getElementById('contact-link');
+    const contactLinkFooter = document.getElementById('contact-link-footer');
+    if (contactLink) contactLink.addEventListener('click', handleContact);
+    if (contactLinkFooter) contactLinkFooter.addEventListener('click', handleContact);
+    
+    // Resaltar enlace activo
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPath || (currentPath === '/' && href === './') || (currentPath.endsWith('/about.html') && href === './about.html')) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
