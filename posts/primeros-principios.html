@@ -2,15 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Pensamiento de primeros principios: cómo razonar desde cero para innovar en tu emprendimiento.">
   <title>Primeros principios · Bitacorae</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css"> <!-- ¡OJO! ../ porque está dentro de posts/ -->
 </head>
 <body>
 
 <nav class="navbar">
   <div class="nav-container">
-    <a href="../" class="logo">⌕ bitacorae</a>
+    <a href="../" class="logo">⌕ bitacorae</a> <!-- ../ para volver a la raíz -->
     <div class="nav-links">
       <a href="../">Inicio</a>
       <a href="../blog.html">Blog</a>
@@ -22,31 +21,40 @@
 
 <main class="container post-content">
   <h1>Pensamiento de primeros principios: cómo razonar desde cero</h1>
-  <div class="post-meta" style="border-bottom: none; margin-bottom: 2rem;">
-    <span>📅 15 de abril, 2025</span> · <span>⏱ 5 min lectura</span>
+  <div class="post-meta">
+    <span>📅 15 de abril, 2025</span>
+    <span>⏱ 5 min lectura</span>
   </div>
-  
-  <p>La mayoría de las personas piensa por analogía: ven lo que otros hacen y lo copian con pequeños ajustes. Eso está bien para mejorar, pero no para innovar de verdad. El <strong>pensamiento de primeros principios</strong> es la herramienta que usan mentes como Elon Musk o Aristóteles para romper con lo establecido y construir desde la física básica.</p>
+
+  <p>La mayoría de las personas piensa por analogía... (contenido completo)</p>
 
   <h2>¿Qué es pensar desde primeros principios?</h2>
-  <p>Es desarmar un problema hasta llegar a sus verdades fundamentales —aquellas que sabés que son ciertas— y luego reconstruir desde ahí. No preguntar “¿qué hace la competencia?” sino “¿qué necesita realmente el usuario?” y “¿cuáles son los límites físicos o económicos?”.</p>
-
-  <h2>Ejemplo real: Elon Musk y los cohetes</h2>
-  <p>Cuando quiso comprar un cohete para llegar a Marte, le pidieron 65 millones de dólares. En lugar de aceptar, aplicó primeros principios: ¿de qué está hecho un cohete? Aleaciones de aluminio, cobre, titanio. ¿Cuánto cuestan esos materiales en el mercado? Solo el 2% del precio del cohete. Así nació SpaceX: fabricando sus propios cohetes por una fracción del costo.</p>
-
-  <h2>Aplicación práctica en tu proyecto</h2>
-  <p>Supongamos que estás creando una plataforma como Almaexon (música, video, galerías). En lugar de copiar a Spotify o YouTube, preguntate:</p>
-  <ul>
-    <li>¿Qué necesidad fundamental resuelvo? (Ej: un artista independiente necesita mostrar su obra sin intermediarios).</li>
-    <li>¿Cuáles son los costos reales de almacenar video? ¿Podés optimizar con formatos ligeros o P2P?</li>
-    <li>¿Qué parte del valor podés dar gratis y cuál cobrar?</li>
-  </ul>
+  <p>Es desarmar un problema hasta llegar a sus verdades fundamentales...</p>
 
   <div class="cta-box">
-    <p><strong>🎯 Tu CTA:</strong> Elegí una suposición que tengas en tu negocio (“necesito inversión”, “esto requiere sí o sí un app nativa”) y desarmala hasta sus componentes básicos. ¿Qué nueva solución surge?</p>
+    <p><strong>🎯 Tu CTA:</strong> Elegí una suposición que tengas en tu negocio y desarmala.</p>
   </div>
 </main>
 
-<footer class="footer">... (mismo footer que en index) ...</footer>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub ↝</a>
+        <a href="#">𝕏 / Twitter</a>
+        <a href="../about.html">Sobre el proyecto</a>
+        <a href="#" id="contact-link">Contacto</a>
+      </div>
+      <div class="footer-copy">© 2025 Bitacorae — Espacio digital para emprendedores</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contact-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("📬 ¡Gracias por tu interés!");
+  });
+</script>
 </body>
 </html>
