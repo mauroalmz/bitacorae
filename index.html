@@ -3,357 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Bitacorae — Espacio digital para registrar aprendizajes, hitos y procesos de emprendimientos. Blog moderno con diseño oscuro elegante.">
+  <meta name="description" content="Bitacorae — Espacio digital para registrar aprendizajes, hitos y procesos de emprendimientos.">
   <title>Bitacorae · bitácora de emprendimiento</title>
-  <style>
-    /* ---------- RESET & BASE (modern, dark, startup-style) ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-deep: #0a0c10;
-      --bg-surface: #111317;
-      --card-bg: #161a22;
-      --card-border: #262c38;
-      --text-primary: #f0f3f8;
-      --text-secondary: #a9b3c9;
-      --text-muted: #6c7a91;
-      --accent: #4f9eff;
-      --accent-glow: rgba(79, 158, 255, 0.2);
-      --accent-hover: #7bb3ff;
-      --transition-smooth: all 0.25s cubic-bezier(0.2, 0, 0, 1);
-      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.3);
-      --shadow-hover: 0 16px 28px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(79, 158, 255, 0.2);
-      --border-radius-card: 1.25rem;
-      --border-radius-element: 0.75rem;
-    }
-
-    body {
-      background-color: var(--bg-deep);
-      color: var(--text-primary);
-      font-family: system-ui, -apple-system, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* tipografía clara y jerarquía */
-    h1, h2, h3, h4 {
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      background: linear-gradient(135deg, #ffffff 0%, #c0d9ff 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
-    }
-
-    a {
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: var(--transition-smooth);
-    }
-
-    /* layout contenedor */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ---------- NAVBAR (modern, sticky, elegante) ---------- */
-    .navbar {
-      background: rgba(10, 12, 16, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(38, 44, 56, 0.6);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      background: linear-gradient(120deg, #fff, var(--accent));
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      letter-spacing: -0.02em;
-      transition: var(--transition-smooth);
-    }
-
-    .logo:hover {
-      opacity: 0.85;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      font-weight: 500;
-    }
-
-    .nav-links a {
-      font-size: 1rem;
-      position: relative;
-      padding-bottom: 0.25rem;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    /* hero section (startup vibe) */
-    .hero {
-      padding: 4rem 0 3rem 0;
-      text-align: center;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 3vw, 1.2rem);
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(79, 158, 255, 0.12);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(79, 158, 255, 0.2);
-    }
-
-    /* sección posts (cards grid) */
-    .posts-section {
-      padding: 2rem 0 4rem 0;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    /* cards elegantes con hover suave */
-    .post-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--border-radius-card);
-      padding: 1.75rem;
-      transition: var(--transition-smooth);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      backdrop-filter: blur(2px);
-    }
-
-    .post-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
-      box-shadow: var(--shadow-hover);
-      background: #181e28;
-    }
-
-    .card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(79, 158, 255, 0.1);
-      padding: 0.25rem 0.9rem;
-      border-radius: 40px;
-      width: fit-content;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      letter-spacing: 0.01em;
-      border: 0.5px solid rgba(79, 158, 255, 0.3);
-    }
-
-    .post-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      border-bottom: 1px dashed #2a2f3c;
-      padding-bottom: 0.75rem;
-    }
-
-    .post-excerpt {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      flex: 1;
-    }
-
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
-      color: var(--accent);
-      transition: var(--transition-smooth);
-      margin-top: 0.5rem;
-    }
-
-    .read-more:hover {
-      gap: 0.75rem;
-      color: var(--accent-hover);
-    }
-
-    /* footer simple y elegante */
-    .footer {
-      background: var(--bg-surface);
-      border-top: 1px solid #1e232e;
-      margin-top: 3rem;
-      padding: 2.5rem 0 2rem;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .footer-links a {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      transition: var(--transition-smooth);
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    .footer-copy {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #2a3040, transparent);
-      margin: 1rem 0;
-    }
-
-    /* responsive refinamientos */
-    @media (max-width: 680px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-links {
-        gap: 1.2rem;
-        justify-content: center;
-      }
-      .hero {
-        padding: 2rem 0 2rem;
-      }
-      .cards-grid {
-        gap: 1.5rem;
-      }
-      .post-card {
-        padding: 1.25rem;
-      }
-      .container {
-        padding: 0 1.2rem;
-      }
-    }
-
-    /* botones sutiles y accesibilidad */
-    ::selection {
-      background: var(--accent);
-      color: #0a0c10;
-    }
-
-    /* scrollbar oscuro */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #111317;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #2e3a48;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- ========== NAVBAR MODERNA ========== -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="./" class="logo">⌕ bitacorae</a>
@@ -367,7 +22,6 @@
   </nav>
 
   <main>
-    <!-- HERO con descripción clara (startup style) -->
     <div class="container">
       <div class="hero">
         <div class="hero-badge">✨ bitácora digital · emprendimiento en evolución</div>
@@ -376,77 +30,54 @@
       </div>
     </div>
 
-    <!-- SECCIÓN POSTS (CARDS) -->
     <div class="container posts-section">
       <h2>📌 Últimos registros</h2>
       <div class="cards-grid">
-        
-        <!-- CARD 1 - Primer post fundacional -->
+        <!-- Post 1: Primeros principios -->
         <article class="post-card">
-          <div class="card-badge">🚀 · Hito inicial</div>
-          <h3 class="post-title">Comenzando Bitacorae: el poder de documentar</h3>
+          <div class="card-badge">🧠 · Estrategia</div>
+          <h3 class="post-title">Pensamiento de primeros principios</h3>
           <div class="post-meta">
-            <span>📅 12 de marzo, 2025</span>
-            <span>⏱ 4 min lectura</span>
-          </div>
-          <p class="post-excerpt">
-            Todo proyecto nace de una chispa. Aquí empieza el viaje: por qué decidí crear este espacio, cómo organizar aprendizajes y la mentalidad de “bitácora viva”.
-          </p>
-          <a href="#" class="read-more">Leer más →</a>
-        </article>
-
-        <!-- CARD 2 - Lecciones tempranas (MVP) -->
-        <article class="post-card">
-          <div class="card-badge">📐 · Metodología</div>
-          <h3 class="post-title">Validación rápida: del concepto al prototipo funcional</h3>
-          <div class="post-meta">
-            <span>📅 22 de marzo, 2025</span>
-            <span>⏱ 6 min lectura</span>
-          </div>
-          <p class="post-excerpt">
-            Cómo construir un MVP sin morir en el intento. Estrategias ágiles para testear hipótesis, feedback temprano y pivotes con propósito.
-          </p>
-          <a href="#" class="read-more">Leer más →</a>
-        </article>
-
-        <!-- CARD 3 - Reflexión emprendedora / hitos -->
-        <article class="post-card">
-          <div class="card-badge">🧠 · Reflexión</div>
-          <h3 class="post-title">Los 3 aprendizajes clave después de 3 meses de bitácora</h3>
-          <div class="post-meta">
-            <span>📅 5 de abril, 2025</span>
+            <span>📅 15 de abril, 2025</span>
             <span>⏱ 5 min lectura</span>
           </div>
-          <p class="post-excerpt">
-            De la incertidumbre a la claridad. Descubrimientos sobre resiliencia, comunidad y la importancia de celebrar pequeños hitos mientras escalas.
-          </p>
-          <a href="#" class="read-more">Leer más →</a>
+          <p class="post-excerpt">Razonar desde cero, como Elon Musk, para romper supuestos y crear soluciones innovadoras. Aplicación práctica en tu emprendimiento.</p>
+          <a href="posts/primeros-principios.html" class="read-more">Leer más →</a>
         </article>
 
-        <!-- CARD 4 - Procesos y herramientas (startup tech) -->
+        <!-- Post 2: Ejecución sobre perfección -->
         <article class="post-card">
-          <div class="card-badge">⚙️ · Herramientas</div>
-          <h3 class="post-title">Organización visual: Notion, GitHub y flujo de creador</h3>
+          <div class="card-badge">⚡ · Acción</div>
+          <h3 class="post-title">Ejecución sobre perfección</h3>
           <div class="post-meta">
             <span>📅 10 de abril, 2025</span>
             <span>⏱ 4 min lectura</span>
           </div>
-          <p class="post-excerpt">
-            Cómo mantener la trazabilidad del proyecto usando herramientas ligeras, documentación abierta y por qué el orden impulsa la creatividad.
-          </p>
-          <a href="#" class="read-more">Leer más →</a>
+          <p class="post-excerpt">La acción genera claridad. Aprende por qué empezar antes de estar listo es la única forma de avanzar. Fracasa rápido, itera mejor.</p>
+          <a href="posts/ejecucion-perfeccion.html" class="read-more">Leer más →</a>
+        </article>
+
+        <!-- Post 3: Propósito y comunidad -->
+        <article class="post-card">
+          <div class="card-badge">💙 · Comunidad</div>
+          <h3 class="post-title">Propósito y comunidad</h3>
+          <div class="post-meta">
+            <span>📅 5 de abril, 2025</span>
+            <span>⏱ 5 min lectura</span>
+          </div>
+          <p class="post-excerpt">El dinero no es suficiente. Conectá tu pasión con un servicio real a los demás. Construí una tribu que comparta tu causa.</p>
+          <a href="posts/proposito-comunidad.html" class="read-more">Leer más →</a>
         </article>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER SIMPLE pero con personalidad -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-links">
-          <a href="https://github.com/mauroalmz/bitacorae" target="_blank" rel="noopener noreferrer">GitHub ↝</a>
-          <a href="#" target="_blank">𝕏 / Twitter</a>
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub ↝</a>
+          <a href="#">𝕏 / Twitter</a>
           <a href="./about.html">Sobre el proyecto</a>
           <a href="#" id="contact-link">Contacto</a>
         </div>
@@ -458,28 +89,18 @@
     </div>
   </footer>
 
-  <!-- pequeña interacción para hover consistente y enlace de contacto demo -->
   <script>
-    // Solo un placeholder sutil para dar feedback al hacer clic en "Contacto"
     const contactLink = document.getElementById('contact-link');
     if(contactLink) {
       contactLink.addEventListener('click', (e) => {
         e.preventDefault();
-        alert("📬 ¡Gracias por tu interés! Pronto habilitaremos un formulario de contacto directo. Mientras, puedes escribir a hola@bitacorae.dev (demo)");
+        alert("📬 ¡Gracias por tu interés! Pronto habilitaremos un formulario de contacto directo.");
       });
     }
-    // resaltar la navegación activa según la página actual (para consistencia)
-    // este script detecta el pathname y actualiza la clase 'active' si se navega a futuro.
-    // útil para cuando se integren otras páginas (sin romper nada)
     const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-links a').forEach(link => {
       const href = link.getAttribute('href');
       if (href === currentPath || (currentPath === '/' && href === './') || (currentPath.endsWith('/') && href === './')) {
-        link.classList.add('active');
-      } else if (href !== './' && currentPath.includes(href) && href !== '#') {
-        link.classList.add('active');
-      } else if (currentPath === '/index.html' && href === './') {
         link.classList.add('active');
       }
     });
