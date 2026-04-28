@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Almaexon — inteligencia comercial en minerales estratégicos y materiales avanzados. Conectando Argentina con China y el mundo.">
-  <title>Proyectos · Almaexon · Bitacorae</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Almaexon · Bitacorae</title>
+  <link rel="stylesheet" href="../css/styles.css"> <!-- ruta relativa hacia arriba -->
 </head>
 <body>
 
   <nav class="navbar">
     <div class="nav-container">
-      <a href="./" class="logo">⌕ bitacorae</a>
+      <a href="../" class="logo">⌕ bitacorae</a> <!-- volver a la raíz -->
       <div class="nav-links">
-        <a href="./">Inicio</a>
-        <a href="./blog.html">Blog</a>
-        <a href="./projects.html" class="active">Proyectos</a>
-        <a href="./about.html">Acerca</a>
+        <a href="../">Inicio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../projects.html">Proyectos</a>
+        <a href="../about.html">Acerca</a>
       </div>
     </div>
   </nav>
@@ -103,7 +103,7 @@
           <a href="https://www.linkedin.com/in/mauroalmaraz/" target="_blank">LinkedIn</a>
           <a href="https://www.instagram.com/mauroialmaraz/" target="_blank">Instagram</a>
           <a href="#">Almaexon</a>
-          <a href="./about.html">Sobre el proyecto</a>
+          <a href="../about.html">Sobre el proyecto</a>
           <a href="#" id="contact-link">Contacto</a>
         </div>
         <div class="footer-copy">© 2026 Bitacorae — Espacio digital para emprendedores y aprendices.</div>
@@ -114,21 +114,12 @@
   <script>
     function handleContact(e) {
       e.preventDefault();
-      alert("📬 ¡Gracias por tu interés! Escribinos a almaexon@bitacorae.dev (demo) o por LinkedIn/Instagram.");
+      alert("📬 ¡Gracias por tu interés! Escribinos a almaexon@bitacorae.dev o por LinkedIn/Instagram.");
     }
     const contactLink = document.getElementById('contact-link');
     const contactLinkProjects = document.getElementById('contact-link-projects');
     if (contactLink) contactLink.addEventListener('click', handleContact);
     if (contactLinkProjects) contactLinkProjects.addEventListener('click', handleContact);
-    
-    // Marcar enlace activo
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPath || (currentPath.endsWith('/projects.html') && href === './projects.html')) {
-        link.classList.add('active');
-      }
-    });
   </script>
 </body>
 </html>
