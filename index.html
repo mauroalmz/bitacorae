@@ -65,27 +65,26 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-links">
-          <a href="https://github.com/mauroalmz/bitacorae" target="_blank" rel="noopener noreferrer">GitHub ↝</a>
-          <a href="#">𝕏 / Twitter</a>
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/mauroalmaraz/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/mauroialmaraz/" target="_blank">Instagram</a>
+          <a href="#">Almaexon</a>
           <a href="./about.html">Sobre el proyecto</a>
           <a href="#" id="contact-link">Contacto</a>
         </div>
-        <div class="footer-copy">
-          <span>© 2025 Bitacorae — Espacio digital para emprendedores y aprendices.</span><br>
-          <span style="font-size: 0.75rem;">Diseño moderno · Código abierto · Desplegado con <span style="color: var(--accent);">Cloudflare Pages</span></span>
-        </div>
+        <div class="footer-copy">© 2026 Bitacorae — Espacio digital para emprendedores y aprendices.</div>
       </div>
     </div>
   </footer>
 
   <script>
-    const contactLink = document.getElementById('contact-link');
-    if (contactLink) {
-      contactLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert("📬 ¡Gracias por tu interés! Pronto habilitaremos un formulario de contacto. Mientras, escribinos a hola@bitacorae.dev (demo)");
-      });
+    function handleContact(e) {
+      e.preventDefault();
+      alert("📬 ¡Gracias por tu interés! Escribinos a hola@bitacorae.dev o por LinkedIn/Instagram.");
     }
+    const contactLink = document.getElementById('contact-link');
+    if (contactLink) contactLink.addEventListener('click', handleContact);
+    
     const currentPath = window.location.pathname;
     document.querySelectorAll('.nav-links a').forEach(link => {
       const href = link.getAttribute('href');
