@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="TechScan PRO: sistema portable de diagnóstico de hardware con cliente .exe y servidor central. Personalizable para cada empresa. Ideal para soporte técnico profesional.">
+  <title>TechScan PRO · Bitacorae</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../" class="logo">⌕ bitacorae</a>
+      <div class="nav-links">
+        <a href="../">Inicio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../projects.html">Proyectos</a>
+        <a href="../about.html">Acerca</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="max-width: 1100px; margin: 2rem auto;">
+      <h1>TechScan PRO · Diagnóstico profesional de hardware</h1>
+      <div class="hero-badge" style="margin-bottom: 1.5rem;">🔧 Portable · Centralizado · 100% Personalizable</div>
+      
+      <div class="post-content">
+        <p><strong>TechScan PRO</strong> es un sistema completo para técnicos de soporte informático. Permite ejecutar diagnósticos de hardware desde un simple pendrive, sin instalar nada en la PC del cliente. Los resultados se envían a un servidor central accesible vía web, donde supervisores y administrativos pueden visualizar el estado de los equipos, gestionar técnicos y llevar un historial permanente.</p>
+
+        <h2>🚀 ¿Qué lo hace diferente?</h2>
+        <ul>
+          <li><strong>Portabilidad total</strong>: el cliente es un único <code>.exe</code> que se ejecuta desde un pendrive. No deja rastros en la PC diagnosticada.</li>
+          <li><strong>Servidor central liviano</strong>: corre en cualquier PC de la red (Ubuntu o Windows) con Python y Flask. No requiere bases de datos complejas.</li>
+          <li><strong>Dashboard web en tiempo real</strong>: muestra equipos activos, estado de diagnóstico, historial por número de serie, y permite gestionar técnicos.</li>
+          <li><strong>Autenticación segura</strong>: técnicos con usuario y contraseña (hash PBKDF2). El administrador puede resetear claves desde el panel.</li>
+          <li><strong>Reportes persistentes</strong>: cada diagnóstico se guarda en CSV con timestamp, técnico, resultados y observaciones.</li>
+        </ul>
+
+        <h2>⚙️ ¿Cómo funciona?</h2>
+        <p><strong>Cliente portable:</strong> se ejecuta en Windows 10/11, no requiere instalación. Realiza pruebas de estrés de CPU/RAM, verificación de disco (SMART), test de red y recolección de datos del sistema (serial, modelo, BIOS).</p>
+        <p><strong>Servidor central:</strong> recibe heartbeats y reportes, y sirve un panel web accesible desde cualquier navegador. Los técnicos inician sesión desde el propio cliente.</p>
+        <p><strong>Almacenamiento:</strong> archivos CSV y JSON (fáciles de respaldar, auditar o exportar).</p>
+
+        <div class="cards-grid" style="margin: 2rem 0;">
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">📸 Pantalla de estrés</div>
+            <p style="text-align: center; margin-top: 0.5rem;">Interfaz mostrando pruebas de CPU y RAM en tiempo real.</p>
+            <img src="pantalla_estres.png" alt="Pantalla de estrés de TechScan PRO" style="max-width: 100%; border-radius: 0.75rem; margin-top: 0.5rem;">
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">📊 Resultados finales</div>
+            <p style="text-align: center; margin-top: 0.5rem;">Reporte detallado con diagnóstico y recomendaciones.</p>
+            <img src="pantalla_resultado.png" alt="Pantalla de resultados de TechScan PRO" style="max-width: 100%; border-radius: 0.75rem; margin-top: 0.5rem;">
+          </div>
+        </div>
+
+        <h2>🎯 Personalización para cada empresa</h2>
+        <p>Cada organización tiene su propia identidad. Por eso <strong>TechScan PRO se adapta totalmente a tu marca</strong>:</p>
+        <ul>
+          <li>Podemos reemplazar logos e íconos por los de tu empresa.</li>
+          <li>El cliente .exe puede llevar el nombre que quieras (ej. <code>Diagnóstico_Rápido_<strong>TuEmpresa</strong>.exe</code>).</li>
+          <li>El dashboard web se diseña con tus colores institucionales.</li>
+          <li>Las pruebas incluidas pueden ampliarse según tus necesidades (ej. test de GPU, herramientas específicas).</li>
+          <li>El sistema puede integrarse con tu sistema de tickets o backend actual.</li>
+        </ul>
+        <p>¿Trabajás en <strong>GrupoTecno</strong>? ¿Tenés tu propio emprendimiento de soporte? Desarrollamos una versión blanca lista para que la uses como herramienta propia.</p>
+
+        <h2>📋 Funcionalidades clave (versión actual 1.0)</h2>
+        <ul>
+          <li>✅ Diagnóstico de CPU, RAM, disco (SMART), red y latencia.</li>
+          <li>✅ Recolección de datos del sistema (serial, modelo, BIOS, etc.).</li>
+          <li>✅ Dashboard web con visualización en tiempo real de equipos activos.</li>
+          <li>✅ Historial completo por número de serie del equipo.</li>
+          <li>✅ Gestión de técnicos (alta, baja, reseteo de contraseñas).</li>
+          <li>✅ Reportes en CSV con trazabilidad (fecha, técnico, resultados).</li>
+        </ul>
+
+        <h2>🔒 Seguridad y control</h2>
+        <ul>
+          <li>Las contraseñas se almacenan con hash PBKDF2.</li>
+          <li>El administrador tiene una clave maestra para resetear cuentas.</li>
+          <li>Los técnicos solo ven los equipos que ellos mismos registran.</li>
+          <li>El servidor puede alojarse en una red interna sin exposición a internet.</li>
+        </ul>
+
+        <h2>📬 ¿Querés implementarlo o adaptarlo a tu empresa?</h2>
+        <p>TechScan PRO es ideal para:</p>
+        <ul>
+          <li>Equipos de soporte técnico interno (áreas de IT).</li>
+          <li>Empresas de servicios informáticos que atienden múltiples clientes.</li>
+          <li>Laboratorios de hardware y escuelas técnicas.</li>
+        </ul>
+        <div class="cta-box">
+          <p><strong>🚀 Solicitar demo o personalización</strong></p>
+          <p>Escribinos a <a href="#" id="contact-link-projects" style="color: var(--accent);">proyectos@bitacorae.dev</a> o por LinkedIn/Instagram. Contanos tu flujo de trabajo y armamos una versión a tu medida.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/mauroalmaraz/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/mauroialmaraz/" target="_blank">Instagram</a>
+          <a href="#">Almaexon</a>
+          <a href="../about.html">Sobre el proyecto</a>
+          <a href="#" id="contact-link">Contacto</a>
+        </div>
+        <div class="footer-copy">© 2026 Bitacorae — Espacio digital para emprendedores y aprendices.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      alert("📬 ¡Gracias por tu interés! Escribinos a proyectos@bitacorae.dev o por LinkedIn/Instagram.");
+    }
+    const contactLink = document.getElementById('contact-link');
+    const contactLinkProjects = document.getElementById('contact-link-projects');
+    if (contactLink) contactLink.addEventListener('click', handleContact);
+    if (contactLinkProjects) contactLinkProjects.addEventListener('click', handleContact);
+  </script>
+</body>
+</html>
