@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Frascos de Dinero: MVP de gestión de ingresos por frascos y porcentajes. Dinero libre vs. reservado. FastAPI + SQLite + Docker.">
+  <title>Frascos de Dinero · Bitacorae</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../" class="logo">⌕ bitacorae</a>
+      <div class="nav-links">
+        <a href="../">Inicio</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../projects.html">Proyectos</a>
+        <a href="../about.html">Acerca</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="max-width: 1100px; margin: 2rem auto;">
+      <h1>Frascos de Dinero · Dinero libre vs. reservado</h1>
+      <div class="hero-badge" style="margin-bottom: 1.5rem;">💰 FastAPI · SQLite · Docker · MVP en 2 semanas</div>
+
+      <div class="post-content">
+        <p><strong>Frascos de Dinero</strong> es un MVP de finanzas personales con una idea central muy simple: <strong>cada ingreso se reparte al instante entre frascos</strong> según porcentajes definidos. Algunos frascos son de "dinero libre" (gastable) y otros son de "dinero reservado" (ahorro, gastos fijos). Los gastos siempre salen de un frasco concreto — nunca del total.</p>
+
+        <p>El objetivo no es competir con apps de finanzas gigantes, sino <strong>forzar disciplina mental</strong> con una regla de oro: si no está en un frasco, no lo podés gastar.</p>
+
+        <h2>🎯 Idea central</h2>
+        <ul>
+          <li><strong>Dinero libre</strong>: es el único número grande en pantalla. Suma de todos los frascos con <code>is_free=true</code>.</li>
+          <li><strong>Dinero reservado</strong>: el resto. No se toca por impulso.</li>
+          <li><strong>Reparto instantáneo</strong>: los ingresos nunca quedan "sin asignar". Al registrarlos se reparten automáticamente.</li>
+          <li><strong>Porcentajes</strong>: la suma de todos los frascos debe ser 100%. Se valida al registrar un ingreso.</li>
+          <li><strong>Gastos siempre por frasco</strong>: nunca contra el total. Fuerza disciplina.</li>
+        </ul>
+
+        <h2>⚙️ Stack técnico</h2>
+        <ul>
+          <li><strong>Backend:</strong> FastAPI + SQLAlchemy + SQLite (sin migraciones complejas, <code>create_all</code> alcanza).</li>
+          <li><strong>Frontend:</strong> un solo archivo HTML con JavaScript vanilla. Sin frameworks. Sin build step.</li>
+          <li><strong>Contenerización:</strong> Docker + Docker Compose (un solo comando para levantar todo).</li>
+          <li><strong>Sin login, sin multi-usuario:</strong> es un MVP local de un solo usuario.</li>
+        </ul>
+
+        <h2>📊 Modelo de datos</h2>
+        <ul>
+          <li><code>jars</code> (id, name, percentage, is_free, balance, goal_target)</li>
+          <li><code>incomes</code> (id, amount, description, created_at)</li>
+          <li><code>expenses</code> (id, jar_id, amount, description, created_at)</li>
+        </ul>
+        <p><strong>Invariante:</strong> suma de <code>percentage</code> de todos los frascos = 100%. Se valida al registrar un ingreso.</p>
+
+        <h2>🚀 Funcionalidades del MVP</h2>
+        <ul>
+          <li>Registrar ingreso → se reparte automáticamente entre frascos.</li>
+          <li>Registrar gasto → sale del frasco seleccionado (con validación de saldo).</li>
+          <li>Crear frascos con porcentaje, marca de "libre" y objetivo de ahorro opcional.</li>
+          <li>Barra de progreso visual cuando un frasco tiene objetivo.</li>
+          <li>Historial de gastos (últimos 50, ordenados por fecha).</li>
+          <li>Vista de "dinero libre" destacada en pantalla con gradiente verde.</li>
+        </ul>
+
+        <h2>📅 Plan de 2 semanas</h2>
+        <div class="cards-grid" style="margin-top: 1rem;">
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Días 1-2</div>
+            <p>Modelo de datos + esqueleto FastAPI + Docker.</p>
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Días 3-5</div>
+            <p>Endpoints: jars, incomes (con reparto), expenses.</p>
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Días 6-7</div>
+            <p>Pantalla "dinero libre" + registrar ingreso.</p>
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Días 8-9</div>
+            <p>Pantalla frascos (CRUD + porcentajes).</p>
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Día 10</div>
+            <p>Objetivos de ahorro (barra de progreso).</p>
+          </div>
+          <div class="post-card" style="padding: 1rem;">
+            <div class="card-badge">Días 11-14</div>
+            <p>Historial, pulido, validaciones, seed inicial, README y deploy local.</p>
+          </div>
+        </div>
+
+        <h2>🧠 Decisiones de diseño clave</h2>
+        <ol>
+          <li><strong>Reparto instantáneo:</strong> los ingresos nunca quedan sin asignar.</li>
+          <li><strong>Dinero libre = suma de frascos <code>is_free=true</code>.</strong> Es el único número grande.</li>
+          <li><strong>Validación de 100%</strong> solo al registrar ingreso, no al crear frascos.</li>
+          <li><strong>Gastos siempre contra un frasco</strong>, nunca contra el total.</li>
+          <li><strong>Objetivos son solo un atributo</strong> del frasco, no una entidad aparte.</li>
+          <li><strong>Sin login, sin categorías, sin reportes.</strong> Todo eso es post-MVP.</li>
+        </ol>
+
+        <h2>🚫 Qué NO hacer en estas 2 semanas</h2>
+        <ul>
+          <li>Login / multi-usuario.</li>
+          <li>Edición de frascos (borrar y recrear alcanza).</li>
+          <li>Migraciones con Alembic.</li>
+          <li>Tests exhaustivos.</li>
+          <li>CSS bonito (el gradiente verde del bloque "libre" es todo el branding).</li>
+        </ul>
+
+        <div class="cta-box">
+          <p><strong>💰 ¿Querés probarlo o adaptarlo?</strong></p>
+          <p>Escribinos a <a href="#" id="contact-link-project" style="color: var(--accent);">proyectos@bitacorae.dev</a> o por LinkedIn/Instagram. El código estará disponible en GitHub próximamente.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://github.com/mauroalmz/bitacorae" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/mauroalmaraz/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/mauroialmaraz/" target="_blank">Instagram</a>
+          <a href="#">Almaexon</a>
+          <a href="../about.html">Sobre el proyecto</a>
+          <a href="#" id="contact-link">Contacto</a>
+        </div>
+        <div class="footer-copy">© 2026 Bitacorae — Espacio digital para emprendedores y aprendices.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      alert("📬 Escribinos a proyectos@bitacorae.dev o por LinkedIn/Instagram.");
+    }
+    document.getElementById('contact-link')?.addEventListener('click', handleContact);
+    document.getElementById('contact-link-project')?.addEventListener('click', handleContact);
+  </script>
+</body>
+</html>
